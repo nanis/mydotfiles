@@ -240,6 +240,7 @@ set updatecount=50
 set winaltkeys=menu
 set winminheight=0
 set wildmenu
+set wrap
 set writebackup
 
 " Digraphs for Turkish
