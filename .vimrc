@@ -1,90 +1,91 @@
 set nocompatible " Yeah, I know ;-)
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/Bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-" Solarized color scheme
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_menu=0
+Plugin 'bling/vim-airline'
 
-" a tool to lookup annotations for Objective Caml source code
-Bundle 'avsm/ocaml-annot'
+" vim syntax highlighting for c, bison, flex
+Plugin 'justinmk/vim-syntax-extra'
 
-" Lean & mean status/tabline for vim that's light as air
-Bundle 'bling/vim-airline'
+" Fuzzy file, buffer, mru, tag, etc finder
+Plugin 'kien/ctrlp.vim'
+let g:ctrlp_by_filename = 0
+let g:ctrlp_regexp = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
+" Vim plugin that displays tags in a window, ordered by class etc
+Plugin 'majutsushi/tagbar'
+
+" Improved C++11/14 STL syntax highlighting
+Plugin 'Mizuchi/STL-Syntax'
+
+" Delete buffers and close files in Vim without closing your windows
+Plugin 'moll/vim-bbye'
+
+" http://xslate.org/
+Plugin 'motemen/xslate-vim'
+
+" My light colorscheme. It may be a misdemeanor against good taste
+" Plugin 'nanis/nonfelony'
+
+" HTML5 omnicomplete and syntax
+" Plugin 'othree/html5.vim'
+
+" provides insert mode auto-completion for quotes, parens, brackets, etc
+Plugin 'Raimondi/delimitMate'
+
+" Pencil color scheme
+" Plugin 'reedes/vim-colors-pencil'
+
+" Extended f, F, t and T key mappings for Vim
+Plugin 'rhysd/clever-f.vim'
+
+" Vim plugin for the_silver_searcher, 'ag'
+Plugin 'rking/ag.vim'
+
+" Comment/uncomment
+Plugin 'tpope/vim-commentary'
+
+" Vim sugar for the UNIX shell commands that need it the most
+Plugin 'tpope/vim-eunuch'
+
+" Vim Markdown runtime files
+Plugin 'tpope/vim-markdown'
+
+Plugin 'vim-perl/vim-perl'
+
+" Plugin 'vim-scripts/Colour-Sampler-Pack'
+Plugin 'vim-scripts/gnuplot.vim'
+Plugin 'altercation/vim-colors-solarized'
+
+" Plugin 'vim-scripts/indenthtml.vim'
+
+Plugin 'vim-scripts/vim-javascript'
+Plugin 'vim-scripts/mru.vim'
+Plugin 'vim-scripts/SAS-Indent'
+Plugin 'vim-scripts/SAS-Syntax'
+Plugin 'vim-scripts/unicode.vim'
+
+call vundle#end()
+
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
-let g:airline_enable_branch=1
-let g:airline_branch_prefix='⎇ '
-let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='sol'
 
-" vim syntax highlighting for c, bison, flex
-Bundle 'justinmk/vim-syntax-extra'
-
-" Fuzzy file, buffer, mru, tag, etc finder
-Bundle 'kien/ctrlp.vim'
-
-" Mercurial wrapper for Vim
-Bundle 'ludovicchabant/vim-lawrencium'
-
-" Vim plugin that displays tags in a window, ordered by class etc
-Bundle 'majutsushi/tagbar'
 let g:tagbar_expand = 1
 let g:tagbar_compact = 1
 let g:tagbar_iconchars = ['▸', '▾']
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-" Signify uses signs to indicate added, modified and removed lines based on
-" data of an underlying version control system.
-Bundle 'mhinz/vim-signify'
-let g:signify_vcs_list = [ 'git', 'hg' ]
-
-" Improved C++11/14 STL syntax highlighting
-Bundle 'Mizuchi/STL-Syntax'
-
-" Delete buffers and close files in Vim without closing your windows
-Bundle 'moll/vim-bbye'
-
-Bundle 'motemen/xslate-vim'
-
-" HTML5 omnicomplete and syntax
-Bundle 'othree/html5.vim'
-
-" provides insert mode auto-completion for quotes, parens, brackets, etc
-Bundle 'Raimondi/delimitMate'
-
-" Pencil color scheme
-Bundle 'reedes/vim-colors-pencil'
-
-" Extended f, F, t and T key mappings for Vim
-Bundle 'rhysd/clever-f.vim'
-
-" Vim plugin for the_silver_searcher, 'ag'
-Bundle 'rking/ag.vim'
-
-" Vim sugar for the UNIX shell commands that need it the most
-Bundle 'tpope/vim-eunuch'
-
-" a Git wrapper
-Bundle 'tpope/vim-fugitive'
-
-" Vim Markdown runtime files
-Bundle 'tpope/vim-markdown'
-
-Bundle 'vim-perl/vim-perl'
 let perl_include_pod=1
 " unlet perl_no_scope_in_variables
 " unlet perl_no_extended_vars
@@ -97,23 +98,13 @@ let perl_sync_dist=250
 " let perl_nofold_packages = 1
 " let perl_nofold_subs = 1
 
-Bundle 'vim-scripts/Colour-Sampler-Pack'
-Bundle 'vim-scripts/gnuplot.vim'
-
-Bundle 'vim-scripts/indenthtml.vim'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-Bundle 'vim-scripts/vim-javascript'
-Bundle 'vim-scripts/mru.vim'
-Bundle 'vim-scripts/SAS-Indent'
-Bundle 'vim-scripts/SAS-Syntax'
-Bundle 'vim-scripts/unicode.vim'
-
-syntax on
-set background=dark
-colorscheme pencil
+syntax enable
+set background=light
+colorscheme solarized
 
 filetype plugin on
 filetype indent on
@@ -128,10 +119,9 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let indent_guides_enable_on_vim_startup=1
 
-hi! MatchParen ctermbg=LightRed ctermfg=White guibg=#d75f00 guifg=White
-
-highlight ColorColumn ctermbg=magenta ctermfg=gray guibg=magenta guifg=white
-call matchadd('ColorColumn', '\%81v', 100)
+let g:ocp_indent_vimfile = system("opam config var share")
+let g:ocp_indent_vimfile = substitute(g:ocp_indent_vimfile, '[\r\n]*$', '', '')
+let g:ocp_indent_vimfile = g:ocp_indent_vimfile . "/vim/syntax/ocp-indent.vim"
 
 if has("autocmd")
     filetype plugin indent on
@@ -148,6 +138,8 @@ if has("autocmd")
 
     autocmd FileType c,cpp,java,php,perl set number
     autocmd FileType c,cpp,java,php,perl autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+    autocmd FileType ocaml exec ":source " . g:ocp_indent_vimfile
 
     au BufWritePost * filetype detect
     " set current directory to the directory of the file in the current window
@@ -205,7 +197,9 @@ let g:vimwiki_menu = 'Tools.Vimwiki'
 set autoindent
 set nobackup
 set backupdir=~/tmp
+set clipboard=unnamed
 set cmdheight=2
+set backspace=indent,eol,start
 set confirm
 set nodigraph
 set directory=~/tmp
@@ -213,9 +207,6 @@ set encoding=utf-8
 set expandtab
 set fileencodings=''
 set formatoptions+=n
-set guifont=monoOne:h13
-set guioptions-=T
-set guioptions+=rl
 set helpheight=20
 set history=96
 set nohlsearch
@@ -233,6 +224,7 @@ set shiftwidth=4
 set showmatch
 set splitbelow
 set statusline=%F\ %m%=Col:\ %c\ Row:\ \%l\ of\ %L\ (%p%%)
+set synmaxcol=200
 set tabstop=4
 set textwidth=76
 set title
@@ -244,15 +236,16 @@ set wrap
 set writebackup
 
 " Digraphs for Turkish
-dig \C 199
-dig \c 231
-dig \g 287
-dig \G 286
-dig \I 304
-dig \i 305
-dig \O 214
-dig \o 246
-dig \S 350
-dig \s 351
-dig \U 220
-dig \u 252
+dig \C 199  " Ç
+dig \c 231  " ç
+dig \g 287  " ğ
+dig \G 286  " Ğ
+dig \I 304  " İ
+dig \i 305  " ı
+dig \O 214  " Ö
+dig \o 246  " ö
+dig \S 350  " Ş
+dig \s 351  " ş
+dig \U 220  " Ü
+dig \u 252  " ü
+
